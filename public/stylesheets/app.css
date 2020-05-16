@@ -1,0 +1,41 @@
+/* img {
+  width: 270px;
+  height: 230px;
+	margin: 5px;
+}*/
+
+.limg {
+	width: 350px;
+  	height: 230px;
+	margin: 0 10px;
+} 
+
+.jumbotron{
+color:#21618C ;
+background-color:#e3f2fd;
+	padding: 10px;
+}
+.navbar .navbar-brand {
+	color:white ;
+}
+
+.col-lg-3 {
+		margin: 10px 10px;
+	}
+
+.col-lg-5 {
+		margin: 10px 50px;
+	}
+
+form {
+	display : inline-block;
+}
+
+h3,label {
+	margin:15px 0 10px 5px;
+}
+
+.i1 {
+	width:100px;
+	margin:0 25px 0 5px;
+}

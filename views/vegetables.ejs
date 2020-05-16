@@ -1,0 +1,32 @@
+<%- include("./partials/header"); %>
+<div class = "container">
+	<h1>Vegetables</h1>
+
+	<% for (var i=1; i<=veges.length; i++){
+	if(i%3==0){%>
+	<div class ="row"><%}%>
+		<div class="thumbnail col-lg-3">
+			<img src="<%=veges[i-1].img%>">	
+			<div class="caption-full">
+				<div class="row">
+					<div class="col-lg-6">
+						<h3><%=veges[i-1].name%></h3>
+					</div>
+					<div class="col-lg-6">
+						<h3>Rs. <%= veges[i-1].price %>/kg</h3>
+					</div>
+				</div>
+				<form action="/addToCart/<%= veges[i-1]._id %>" method="POST">
+					<label>Qty:</label>
+					<input class ="i1" type="number" name="quantity" min="1" step="1">
+					<button class="btn btn-primary">
+					Add to Cart
+					</button>
+				</form>
+			</div>	
+		</div>
+	<%if(i%3==0){%>
+	</div><%}%>
+	<%}%>
+</div> 
+

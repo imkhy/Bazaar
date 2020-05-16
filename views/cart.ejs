@@ -1,0 +1,50 @@
+<%- include("./partials/header"); %>
+
+<% var sum=0;
+	var items=0;%>
+
+<%if(!cart){%>
+	<div class="container">
+	<h2>Your cart is empty!</h2>
+	</div>
+<%}else{%>
+	<div class="container">
+		<h2>Cart Items:</h2>
+		<% for(var i=1; i<=cart.products.length; i++){ 
+			if(i%2==0){%>
+			<div class="row"><%}%>
+				<div class = "thumbnail col-lg-5">
+					<img class="col-lg-3" src="<%=cart.products[i-1].img%>">
+					<div >
+						<h3 class="pull-right"> Rs. <%= cart.products[i-1].price * cart.products[i-1].quantity%></h3>
+						<h3><%=cart.products[i-1].name%></h3>
+						
+						<h4>Rs. <%=cart.products[i-1].price%>/kg * <%=cart.products[i-1].quantity%></h4>
+						<form action="/cart/remove/<%=cart.products[i-1]._id%>?_method=DELETE" method="POST" class="pull-right">
+							<button class="btn btn-xs btn-warning">Remove</button>
+						</form>
+						<% sum += cart.products[i-1].price * cart.products[i-1].quantity;
+						   items += cart.products[i-1].quantity %>
+					</div>
+				</div>
+			<%if(i%2==0){%>
+			</div><%}
+		} %>
+		<% cart.itemCount = items %>
+		<% cart.cartTotal = sum %>
+	</div>
+	<div class="container">
+		<h3>
+			Total Items: <%= cart.itemCount %>
+		</h3>
+		<h3>
+			Total Amount: Rs. <%= cart.cartTotal %>.00
+		</h3>
+		<form action="/order" method="POST" class="pull-right">
+			<button class="btn btn-lg btn-warning">
+				Proceed To Order
+			</button>
+		</form>
+		<a class="btn btn-lg btn-primary" style="padding:8px 50px" href="/">Go Back</a>
+	</div>
+<%}%>
