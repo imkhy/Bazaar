@@ -19,11 +19,12 @@ router.post("/order",isLoggedIn,function(req,res){
 						console.log(err);
 					}else{
 						 console.log(cart);
+						var i=4;
 						var options = {
 							amount: cart.cartTotal,
 							currency: "INR",
 							name: "Khy",
-							receipt: "order_rcptid_11",
+							receipt: "order_rcptid_"+i,
 							payment_capture: '0'
 						}
 						Order.create(options, function(err, order) {
@@ -31,6 +32,7 @@ router.post("/order",isLoggedIn,function(req,res){
 								console.log(err);
 							}else{
 								console.log(order);
+								i++;
 								res.render("checkout",{user:user,cart:cart,order:order});
 							} 
 						});
@@ -50,7 +52,14 @@ router.post("/checkout",isLoggedIn,function(req,res){
 		}else{
 			user.address.push(req.body.add);
 			user.save();
-			res.render("checkout",{user:user});
+			Cart.findOne({userId:user._id},function(err,cart){
+				if(err){
+					console.log(err);
+				}else{
+					console.log(cart);
+					res.render("checkout",{user:user,cart:cart});
+				}
+			});
 		}
 	});	
 });

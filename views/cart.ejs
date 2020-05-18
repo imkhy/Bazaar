@@ -20,7 +20,7 @@
 						<h3><%=cart.products[i-1].name%></h3>
 						
 						<h4>Rs. <%=cart.products[i-1].price%>/kg * <%=cart.products[i-1].quantity%></h4>
-						<form action="/cart/remove/<%=cart.products[i-1]._id%>?_method=DELETE" method="POST" class="pull-right">
+						<form action="/cart/remove/<%=cart.products[i-1]._id%>" method="POST" class="pull-right">
 							<button class="btn btn-xs btn-warning">Remove</button>
 						</form>
 						<% sum = sum + (cart.products[i-1].price * cart.products[i-1].quantity);

@@ -90,7 +90,7 @@ router.get("/cart",isLoggedIn,function(req,res){
 	});
 });
 
-router.delete("/cart/remove/:i_id",isLoggedIn, function(req,res){
+router.post("/cart/remove/:i_id",isLoggedIn, function(req,res){
 	var i_id=req.params.i_id;
 	Cart.findOne({userId:req.user._id},function(err,cart){
 		if(err){
@@ -105,7 +105,7 @@ router.delete("/cart/remove/:i_id",isLoggedIn, function(req,res){
 					cart.products.pull(item);
 					cart.save();
 					res.render("cart",{cart:cart});
-					res.redirect("/cart");
+					//res.redirect("/cart");
 				}	
 			});
 		}	
