@@ -7,11 +7,12 @@ var router = express.Router(),
 	Cart = require("../models/cart");
 
 router.post("/payment/success",function(req,res){
-	Cart.findOne({userId:req.user._id},function(err,cart){
+	Cart.findOneAndRemove({userId:req.user._id},function(err,cart){
 		if(err){
 			console.log(err);
 		}else{
 			console.log("Done");
+			
 			res.render("success");
 		}
 	});
