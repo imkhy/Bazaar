@@ -12,6 +12,7 @@ var express = require("express"),
 	 cartRoutes = require("./routes/cart"),
 	 authRoutes = require("./routes/auth"),
 	orderRoutes = require("./routes/order"),
+	razorpayRoutes = require("./routes/razorpay"),
 	passport = require("passport"),
 	LocalStrategy = require("passport-local"),
 	passportLocalMongoose = require("passport-local-mongoose"),
@@ -54,6 +55,7 @@ app.use(vegetableRoutes);
 app.use(beverageRoutes);
 app.use(cartRoutes);
 app.use(orderRoutes);
+app.use(razorpayRoutes);
 
 var PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

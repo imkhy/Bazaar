@@ -23,15 +23,16 @@
 						<form action="/cart/remove/<%=cart.products[i-1]._id%>?_method=DELETE" method="POST" class="pull-right">
 							<button class="btn btn-xs btn-warning">Remove</button>
 						</form>
-						<% sum += cart.products[i-1].price * cart.products[i-1].quantity;
-						   items += cart.products[i-1].quantity %>
+						<% sum = sum + (cart.products[i-1].price * cart.products[i-1].quantity);
+						   items = items + (cart.products[i-1].quantity) %>
 					</div>
 				</div>
 			<%if(i%2==0){%>
 			</div><%}
 		} %>
-		<% cart.itemCount = items %>
-		<% cart.cartTotal = sum %>
+		<% cart.itemCount = items %> 
+		<% cart.cartTotal = sum; 
+			cart.save();%>
 	</div>
 	<div class="container">
 		<h3>
