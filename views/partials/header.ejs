@@ -1,18 +1,27 @@
 <html>
 	<head>
-		<title>Buy Groceries Online</title>	
-		<link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet"  type="text/css"	href="./stylesheets/app.css" >
+		<title>Buy Groceries Online</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css"	href="./stylesheets/app.css" >
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg" style="background-color: black;"> 
-  			<div class="container-fluid">
+			<div class="container">
 				<div class="navbar-header">
 					<a href="/" class="navbar-brand">Bazaar</a>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#shop" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only" >Toggle navigation</span>
+              <span class="icon-bar" style="background-color: white;"></span>
+              <span class="icon-bar" style="background-color: white;"></span>
+              <span class="icon-bar" style="background-color: white;"></span>
+            </button>
 				</div>
+
+			<div class="collapse navbar-collapse" id="shop">
 				<ul class = "nav navbar-nav mr-auto">
 					<li class="nav-item dropdown">
-						<a style="color:white" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 							role="button" data-toggle="dropdown" aria-haspopup="true" aria-							expanded="false">Categories</a>
+						<a style="color:white" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded= "false">Categories</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="/fruits">Fruits</a>
 							<div class="dropdown-divider"></div>
@@ -20,18 +29,18 @@
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="/beverages">Beverages</a>
 						</div>
-     				</li>
+					</li>
 				</ul>
 				<ul  class="nav navbar-nav navbar-right">
 					<%if(!currentUser){%>
-					<li class = "nav-item"><a style="color:white" class="nav-link" href="/login">Login  </a></li>
-					<li class = "nav-item"><a style="color:white" class="nav-link" href="/register">Sign Up</a></li>               <%}else{%>
-					<li class = "nav-item"><a style="color:white" class="nav-link" href="/cart">Cart </a></li>
-					<li class = "nav-item"><a style="color:white" class="nav-link" href="/logout">LogOut </a></li>
-					<%}%>
+						<li class = "nav-item"><a style="color:white" class="nav-link" href="/login">Login  </a></li>
+						<li class = "nav-item"><a style="color:white" class="nav-link" href="/register">Sign Up</a></li>               <%}else{%>
+						<li class = "nav-item"><a style="color:white" class="nav-link" href="/cart">Cart </a></li>
+						<li class = "nav-item"><a style="color:white" class="nav-link" href="/logout">LogOut </a></li>
+						<%}%>
 				</ul>	
 			</div>
+			</div>
 		</nav>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

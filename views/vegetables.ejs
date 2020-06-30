@@ -2,17 +2,16 @@
 <div class = "container">
 	<h1>Vegetables</h1>
 
-	<% for (var i=1; i<=veges.length; i++){
-	if(i%3==0){%>
-	<div class ="row"><%}%>
-		<div class="thumbnail col-lg-3">
-			<img src="<%=veges[i-1].img%>">	
+	<% for (var i=1; i<=veges.length; i++){ %>
+		<div class="d-flex justify-content-around">
+			<div class="thumbnail col-lg-3 col-sm-5">
+			<img src="<%=veges[i-1].img%>" width=280px height=250px>	
 			<div class="caption-full">
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-md-6 col-sm-6">
 						<h3><%=veges[i-1].name%></h3>
 					</div>
-					<div class="col-lg-6">
+					<div class="col-md-6 col-sm-6">
 						<h3>Rs. <%= veges[i-1].price %>/kg</h3>
 					</div>
 				</div>
@@ -24,9 +23,8 @@
 					</button>
 				</form>
 			</div>	
+			</div>
 		</div>
-	<%if(i%3==0){%>
-	</div><%}%>
 	<%}%>
 </div> 
 

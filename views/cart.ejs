@@ -10,26 +10,22 @@
 <%}else{%>
 	<div class="container">
 		<h2>Cart Items:</h2>
-		<% for(var i=1; i<=cart.products.length; i++){ 
-			if(i%2==0){%>
-			<div class="row"><%}%>
+		<% for(var i=1; i<=cart.products.length; i++){ %>
 				<div class = "thumbnail col-lg-5">
-					<img class="col-lg-3" src="<%=cart.products[i-1].img%>">
-					<div >
-						<h3 class="pull-right"> Rs. <%= cart.products[i-1].price * cart.products[i-1].quantity%></h3>
-						<h3><%=cart.products[i-1].name%></h3>
+					<img class="col-lg-3 col-sm-2 img" src="<%=cart.products[i-1].img%>">
+					<div>
+						<h3 class="pull-right h3c"> Rs. <%= cart.products[i-1].price * cart.products[i-1].quantity%></h3>
+						<h3 class="h3c"><%=cart.products[i-1].name%></h3>
 						
-						<h4>Rs. <%=cart.products[i-1].price%>/kg * <%=cart.products[i-1].quantity%></h4>
+						<h4 class="h4c">Rs. <%=cart.products[i-1].price%>/kg * <%=cart.products[i-1].quantity%></h4>
 						<form action="/cart/remove/<%=cart.products[i-1]._id%>" method="POST" class="pull-right">
-							<button class="btn btn-xs btn-warning">Remove</button>
+							<button class="btn btn-xs btn-warning hel0">Remove</button>
 						</form>
 						<% sum = sum + (cart.products[i-1].price * cart.products[i-1].quantity);
 						   items = items + (cart.products[i-1].quantity) %>
 					</div>
 				</div>
-			<%if(i%2==0){%>
-			</div><%}
-		} %>
+		<% } %>
 		<% cart.itemCount = items %> 
 		<% cart.cartTotal = sum; 
 			cart.save();%>
@@ -41,11 +37,11 @@
 		<h3>
 			Total Amount: Rs. <%= cart.cartTotal %>.00
 		</h3>
-		<form action="/order" method="POST" class="pull-right">
-			<button class="btn btn-lg btn-warning">
+		<form action="/order" method="POST" class="pull-right hel1">
+			<button class="btn btn-lg btn-warning hel2">
 				Proceed To Order
 			</button>
 		</form>
-		<a class="btn btn-lg btn-primary" style="padding:8px 50px" href="/">Go Back</a>
+		<a class="btn btn-lg btn-primary hel3" href="/">Go Back</a>
 	</div>
 <%}%>

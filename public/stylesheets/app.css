@@ -27,15 +27,43 @@ background-color:#e3f2fd;
 		margin: 10px 30px;
 	}
 
-form {
+.hel1 {
 	display : inline-block;
 }
 
-h3,label {
+.hel3 {
+	padding:8px 50px
+}
+
+.h3c,label {
 	margin:15px 0 10px 5px;
 }
 
 .i1 {
 	width:100px;
 	margin:0 25px 0 5px;
+}
+
+@media (max-width: 500px) {
+	.hel0{
+		margin:-20px 0;
+	}	
+	.hel1 {
+		display : inline;
+	}
+	.hel2 {
+		margin:0 0 0 -6px;
+		padding:8px 25px;
+		size:10px;
+	}
+	.hel3 {
+		padding:8px 30px
+	}
+	.img {
+		width:100px;
+		height:100px
+	}
+	.h3c {
+		size:10px;
+	}
 }
