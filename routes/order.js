@@ -6,7 +6,7 @@ var router = express.Router(),
 	Item = require("../models/items"),
 	Order = require("../models/orders"),
 Cart = require("../models/cart");
-
+var i=1;
 router.post("/order",isLoggedIn,function(req,res){
 	User.findById(req.user._id, function(err, user){
 		if(err){
@@ -57,7 +57,22 @@ router.post("/checkout",isLoggedIn,function(req,res){
 					console.log(err);
 				}else{
 					console.log(cart);
-					res.render("checkout",{user:user,cart:cart});
+					i+=1;
+					var options = {
+						amount: cart.cartTotal,
+						currency: "INR",
+						name: user.username,
+						receipt: "order_rcptid_"+i,
+						payment_capture: '0'
+					}
+					Order.create(options, function(err, order) {
+						if(err){
+							console.log(err);
+						}else{
+							console.log(order);
+							res.render("checkout",{user:user,cart:cart,order:order});
+						} 
+					});
 				}
 			});
 		}
