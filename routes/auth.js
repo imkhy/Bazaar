@@ -18,6 +18,8 @@ router.post("/register",function(req,res){
 	}),req.body.password,function(err,user){
 		if(err){
 			console.log(err);
+			req.flash("error",err);
+			res.redirect("/register");
 		}
 		passport.authenticate("local")(req,res,function(){
 			req.flash("success","Welcome to Bazaar, "+req.body.username+"! Happy Shopping! :D");
@@ -35,13 +37,6 @@ router.post("/login",passport.authenticate("local",{
 	successRedirect: "/",
 	failureRedirect: "/login",
 }),function(req,res){
-	// if (successRedirect){
-	// 	console.log("Logged");
-	// 	req.flash("success","You are logged in,"+req.body.username);
-	// }else{
-	// 	req.flash("error","Error logging in, Try Again!");
-	// }
-	console.log(req);
 });
 
 router.get("/logout",function(req,res){
