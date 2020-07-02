@@ -36,16 +36,27 @@ router.post("/addToCart/:id",isLoggedIn,function(req,res){
 							img : item.img,
 							price : item.price,	
 							quantity: req.body.quantity});
+							
 							console.log("Pushed")
 							console.log(item);
+							if (req.body.quantity==0){
+								req.flash("error","Enter quantity");
+								res.redirect("back");
+							}else{
+								cart.save();
+								req.flash("success","Item Added");
+								res.redirect("back");
+							}
 						}else{
 							cart.products[i].quantity = req.body.quantity;
 							console.log("Updated");
+							cart.save();
+							req.flash("success","Item Quantity Updated");
+							res.redirect("back");
 						}
-						cart.save();
+						
 						console.log(cart);
-						req.flash("success","Item Added");
-						res.redirect("back");
+						
 					} 
 					else
 					{
