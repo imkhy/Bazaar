@@ -3,6 +3,15 @@
   height: 230px;
 	margin: 5px;
 }*/
+.rtc {
+	 margin:10px 25px; 
+	padding: 7px 0
+}
+
+.add {
+	 margin:10px 25px; 
+	padding: 7px 0
+}
 
 .limg {
 	width: 350px;
@@ -17,6 +26,11 @@ background-color:#e3f2fd;
 }
 .navbar .navbar-brand {
 	color:white ;
+}
+
+.address {
+	 width:30%; 
+	margin:60px auto
 }
 
 .col-lg-3 {
@@ -65,5 +79,17 @@ background-color:#e3f2fd;
 	}
 	.h3c {
 		size:10px;
+	}
+	.address {
+		 width:70%; 
+	}
+	.rtc {
+		 margin:0 10px; 
+		padding: 7px 6px
+	}
+
+	.add {
+		 margin:0 10px; 
+		padding: 7px 6px
 	}
 }

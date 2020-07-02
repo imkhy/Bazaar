@@ -44,6 +44,7 @@ router.post("/addToCart/:id",isLoggedIn,function(req,res){
 						}
 						cart.save();
 						console.log(cart);
+						req.flash("success","Item Added");
 						res.redirect("back");
 					} 
 					else
@@ -66,6 +67,7 @@ router.post("/addToCart/:id",isLoggedIn,function(req,res){
 								console.log("Created Cart!!");
 								console.log(cart);
 								var cartid = cart._id;
+								req.flash("success","Item Added");
 								res.redirect("back");
 							}
 						});
@@ -104,8 +106,9 @@ router.post("/cart/remove/:i_id",isLoggedIn, function(req,res){
 					console.log(item);
 					cart.products.pull(item);
 					cart.save();
-					res.render("cart",{cart:cart});
-					//res.redirect("/cart");
+					req.flash("success","Item Removed");
+					// res.render("cart",{cart:cart});
+					res.redirect("/cart");
 				}	
 			});
 		}	
